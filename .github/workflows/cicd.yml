@@ -68,8 +68,7 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/gallery-front:latest
             
             docker compose down
-            docker compose up -d
-            
+            docker compose up -d      
             docker image prune -f
             
            
