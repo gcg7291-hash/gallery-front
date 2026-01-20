@@ -1,25 +1,20 @@
 name: CI/CD
-
 on:
   push:
-    branches: [main]
-
-  jobs:
-    build:
-      runs-on:  ubuntu-latest
-
-      steps:
-        - name: Checkout
-          uses: actions/Checkout@v4
-
-        - name: Set up Node.jobs
-          uses: actions/setup-node@v4
-          with:
-            node-version: '20'
-            chache: 'npm'
-
-        - name: Install dependencies
-          run: npm CI
-        
-        - name: Build
-          run: npm run build
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - name: Install dependencies
+        run: npm install
+      - name: Build project
+        run: npm run build
